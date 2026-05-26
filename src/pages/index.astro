@@ -1,0 +1,379 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Wave from "../components/Wave.astro";
+
+const featured = [
+  { img: "/images/products/mega-soft-frozen.jpg", name: "Mega Soft Frozen", cat: "Keropok Lekor" },
+  { img: "/images/products/lekor-chips.jpg", name: "Lekor Chips", cat: "Crispy Snack" },
+  { img: "/images/products/keropok-batang.jpg", name: "Keropok Batang", cat: "Fish Crackers" },
+  { img: "/images/products/sos-pencicah.jpg", name: "Sos Pencicah", cat: "Dipping Sauce" },
+];
+
+const certs = [
+  { img: "/images/certs/halal.png", name: "Halal Malaysia" },
+  { img: "/images/certs/mesti.png", name: "MeSTI" },
+];
+
+const quality = [
+  { k: "Traditional recipe", v: "Authentic keropok lekor made the way it should be — soft, springy and full of fish." },
+  { k: "Halal & MeSTI certified", v: "Produced under JAKIM Halal and KKM MeSTI food-safety certification." },
+  { k: "Fresh, frozen or chilled", v: "Supplied fresh, chilled or frozen — ready for retail, food service and export." },
+];
+---
+
+<Layout path="/">
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy" data-hero-stagger>
+        <span class="eyebrow">Malaysian Keropok Lekor · Since 1988</span>
+        <h1>Real keropok lekor, <span class="accent">made fresh.</span></h1>
+        <p class="hero-lead">
+          Kitasama has been making Malaysia's favourite fish crackers for over 35 years —
+          soft, springy keropok lekor and crispy snacks, supplied fresh, chilled and frozen.
+        </p>
+        <div class="hero-actions">
+          <a href="/products" class="btn btn-primary">Explore products
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="/contact" class="btn btn-ghost">Wholesale &amp; supply</a>
+        </div>
+        <p class="hero-trust">Halal &amp; MeSTI certified · made fresh in <strong>Klang, Selangor</strong>.</p>
+      </div>
+
+      <div class="hero-art" data-hero-art>
+        <div class="hero-img-main">
+          <img src="/images/products/mega-soft-frozen.jpg" alt="Kitasama Mega Soft keropok lekor" width="620" height="520" />
+        </div>
+        <figure class="hero-float">
+          <img src="/images/products/lekor-chips.jpg" alt="Kitasama lekor chips" width="280" height="200" />
+          <figcaption>Lekor Chips</figcaption>
+        </figure>
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Since<br><strong>1988</strong></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TICKER ============ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Mega Soft Lekor</span><i></i><span>Lekor Chips</span><i></i><span>Keropok Batang</span><i></i>
+      <span>Lekor Panjang</span><i></i><span>Dipping Sauce</span><i></i>
+      <span>Mega Soft Lekor</span><i></i><span>Lekor Chips</span><i></i><span>Keropok Batang</span><i></i>
+      <span>Lekor Panjang</span><i></i><span>Dipping Sauce</span><i></i>
+    </div>
+  </div>
+
+  <!-- ============ BRANDS ============ -->
+  <section class="brands">
+    <div class="container">
+      <header class="sec-head" data-reveal>
+        <div>
+          <span class="eyebrow">Our range</span>
+          <h2 class="section-title">Soft, springy &amp; crispy</h2>
+        </div>
+        <p class="section-lead">From the classic soft fish stick to crunchy lekor chips — the same authentic recipe, in the format you need.</p>
+      </header>
+
+      <div class="brand-grid" data-reveal-group>
+        <article class="brand-card">
+          <div class="brand-media"><img src="/images/products/mega-soft-frozen.jpg" alt="Mega Soft keropok lekor" loading="lazy" /></div>
+          <div class="brand-body">
+            <span class="brand-tag tag-navy">Soft</span>
+            <h3>Mega Soft keropok lekor</h3>
+            <p>Our signature soft, springy fish stick — supplied fresh, chilled or frozen for any kitchen.</p>
+            <a href="/products" class="textlink">View range →</a>
+          </div>
+        </article>
+        <article class="brand-card">
+          <div class="brand-media"><img src="/images/products/lekor-chips.jpg" alt="Kitasama lekor chips" loading="lazy" /></div>
+          <div class="brand-body">
+            <span class="brand-tag tag-red">Crispy</span>
+            <h3>Lekor chips &amp; crackers</h3>
+            <p>Sliced lekor chips and keropok batang — the crunchy, snackable side of the family.</p>
+            <a href="/products" class="textlink">View range →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED ============ -->
+  <section class="featured">
+    <div class="container">
+      <header class="sec-head row" data-reveal>
+        <div>
+          <span class="eyebrow">Best sellers</span>
+          <h2 class="section-title">Made to be enjoyed</h2>
+        </div>
+        <a href="/products" class="btn btn-ghost">All products
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </header>
+
+      <div class="prod-grid" data-reveal-group>
+        {featured.map((p) => (
+          <a href="/products" class="prod-card">
+            <div class="prod-media"><img src={p.img} alt={p.name} loading="lazy" /></div>
+            <div class="prod-info">
+              <span class="prod-cat">{p.cat}</span>
+              <h3>{p.name}</h3>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUALITY ============ -->
+  <section class="quality">
+    <div class="container quality-grid">
+      <div class="quality-media" data-reveal>
+        <div class="quality-frame">
+          <img src="/images/about-factory.jpg" alt="Kitasama factory" width="560" height="600" loading="lazy" data-parallax="-26" />
+        </div>
+        <div class="quality-stat" data-parallax="22">
+          <span class="num"><span data-count="35">0</span>+</span>
+          <span class="lbl">years making<br>keropok lekor</span>
+        </div>
+      </div>
+      <div class="quality-copy" data-reveal>
+        <span class="eyebrow">Why Kitasama</span>
+        <h2 class="section-title">From a home kitchen to Malaysia's tables</h2>
+        <p class="section-lead">What began in a small Klang kitchen in 1988 now runs on modern machinery — but the recipe, and the springy texture people love, hasn't changed.</p>
+        <ul class="quality-list">
+          {quality.map((q) => (
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg>
+              <div><strong>{q.k}</strong><span>{q.v}</span></div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATIONS ============ -->
+  <section class="certs ribbon ribbon-cream">
+    <Wave side="top" />
+    <Wave side="bottom" />
+    <div class="ribbon-inner">
+      <div class="container">
+        <span class="eyebrow center certs-eyebrow">Certified &amp; trusted</span>
+      </div>
+      <div class="cert-belt">
+        <div class="cert-belt-track">
+          {[...certs, ...certs, ...certs, ...certs].map((c) => (
+            <div class="cert-plate"><img src={c.img} alt={c.name} loading="lazy" /></div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta ribbon">
+    <Wave side="top" />
+    <Wave side="bottom" />
+    <div class="container ribbon-inner">
+      <div class="cta-box" data-reveal>
+        <div class="cta-copy">
+          <h2>Bring real keropok lekor to your customers.</h2>
+          <p>Wholesale, food-service and export partners — let's talk supply, formats and volumes.</p>
+        </div>
+        <a href="/contact" class="btn btn-primary">Get in touch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .accent { color: var(--red); }
+  .textlink { font-weight: 600; color: var(--red); font-size: .95rem; }
+  .textlink:hover { color: var(--red-deep); }
+
+  /* ---------- HERO ---------- */
+  .hero { padding: 72px 0 90px; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .hero-copy h1 {
+    font-size: clamp(2.9rem, 6vw, 4.6rem);
+    margin: 22px 0 22px;
+    letter-spacing: -0.04em;
+  }
+  .hero-lead { font-size: 1.15rem; color: var(--ink-soft); max-width: 500px; line-height: 1.65; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 32px 0 26px; }
+  .hero-trust { font-size: .95rem; color: var(--ink-soft); }
+  .hero-trust strong { color: var(--ink); font-weight: 700; }
+
+  .hero-art { position: relative; }
+  .hero-img-main {
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    aspect-ratio: 6 / 5;
+    background: #fff;
+  }
+  .hero-img-main img { width: 100%; height: 100%; object-fit: contain; padding: 24px; }
+  .hero-float {
+    position: absolute; left: -28px; bottom: -28px;
+    width: 220px; background: #fff;
+    border-radius: 16px; padding: 10px; box-shadow: var(--shadow-md);
+  }
+  .hero-float img { width: 100%; border-radius: 9px; aspect-ratio: 7/5; object-fit: contain; background: #fff; }
+  .hero-float figcaption { font-size: .76rem; font-weight: 600; color: var(--ink-soft); padding: 8px 4px 4px; }
+  .hero-badge {
+    position: absolute; top: -22px; right: -18px;
+    display: flex; align-items: center; gap: 10px;
+    background: var(--navy); color: #fff;
+    padding: 12px 16px; border-radius: 14px; box-shadow: var(--shadow-md);
+  }
+  .hero-badge span { font-family: var(--font-display); font-size: .72rem; line-height: 1.1; letter-spacing: .04em; }
+  .hero-badge strong { font-size: 1.05rem; }
+  .hero-badge .badge-dot { width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; background: var(--gold); border: 3px solid rgba(255,255,255,.35); }
+
+  /* ---------- TICKER ---------- */
+  .ticker { background: var(--navy); overflow: hidden; padding: 15px 0; }
+  .ticker-track {
+    display: flex; align-items: center; gap: 28px; white-space: nowrap; width: max-content;
+    animation: scroll 28s linear infinite;
+  }
+  .ticker-track span {
+    font-family: var(--font-display); font-weight: 600; font-size: .92rem;
+    text-transform: uppercase; letter-spacing: .14em; color: rgba(255,255,255,.92);
+  }
+  .ticker-track i { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  /* ---------- shared section header ---------- */
+  .brands, .featured { padding: 100px 0 0; }
+  .sec-head { margin-bottom: 48px; }
+  .sec-head.row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+  .brands .sec-head { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: end; }
+  .brands .sec-head .section-lead { margin-top: 0; }
+
+  /* ---------- BRANDS ---------- */
+  .brand-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .brand-card { display: block; }
+  .brand-media {
+    overflow: hidden; border-radius: 28px; background: #fff;
+    box-shadow: 0 0 0 rgba(35,49,39,0);
+    transition: transform .4s cubic-bezier(.2,.8,.25,1), box-shadow .4s ease;
+  }
+  .brand-media img { width: 100%; aspect-ratio: 16/10; object-fit: contain; padding: 24px; transition: transform .6s cubic-bezier(.2,.8,.25,1); }
+  .brand-card:hover .brand-media { transform: translateY(-8px); box-shadow: var(--shadow-md); }
+  .brand-card:hover .brand-media img { transform: scale(1.05); }
+  .brand-body { padding: 24px 6px 0; }
+  .brand-tag {
+    display: inline-block; font-weight: 600; font-size: .74rem;
+    letter-spacing: .1em; text-transform: uppercase; margin-bottom: 12px;
+  }
+  .tag-navy { color: var(--navy); }
+  .tag-red { color: var(--red); }
+  .brand-body h3 { font-size: 1.6rem; margin-bottom: 10px; letter-spacing: -0.03em; }
+  .brand-body p { color: var(--ink-soft); font-size: 1rem; margin-bottom: 16px; max-width: 440px; }
+
+  /* ---------- FEATURED ---------- */
+  .prod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px; }
+  .prod-card { display: block; }
+  .prod-media {
+    aspect-ratio: 1/1; overflow: hidden; border-radius: 26px;
+    background: #fff; box-shadow: 0 0 0 rgba(35,49,39,0);
+    transition: transform .4s cubic-bezier(.2,.8,.25,1), box-shadow .4s ease;
+  }
+  .prod-media img { width: 100%; height: 100%; object-fit: contain; padding: 18px; transition: transform .6s cubic-bezier(.2,.8,.25,1); }
+  .prod-card:hover .prod-media { transform: translateY(-12px); box-shadow: 0 26px 44px rgba(95,174,54,.18); }
+  .prod-card:hover .prod-media img { transform: scale(1.08); }
+  .prod-info { padding: 18px 6px 0; }
+  .prod-cat { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--red); }
+  .prod-info h3 {
+    font-size: 1.08rem; margin-top: 6px; letter-spacing: -0.02em;
+    transition: color .25s ease; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .prod-info h3::after {
+    content: "→"; font-size: .95rem; opacity: 0; transform: translateX(-6px);
+    transition: opacity .25s ease, transform .25s ease; color: var(--red);
+  }
+  .prod-card:hover .prod-info h3 { color: var(--red); }
+  .prod-card:hover .prod-info h3::after { opacity: 1; transform: translateX(0); }
+
+  /* ---------- QUALITY ---------- */
+  .quality { padding: 110px 0 0; }
+  .quality-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items: center; }
+  .quality-media { position: relative; }
+  .quality-frame { border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 14/15; box-shadow: var(--shadow-md); }
+  .quality-frame img { width: 100%; height: 114%; object-fit: cover; object-position: center; }
+  .quality-stat {
+    position: absolute; right: -22px; bottom: 32px; z-index: 2;
+    background: var(--red); color: #fff; border-radius: 16px;
+    padding: 18px 22px; box-shadow: 0 18px 40px rgba(218,33,40,.3);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .quality-stat .num { font-family: var(--font-display); font-weight: 700; font-size: 2.4rem; line-height: 1; }
+  .quality-stat .lbl { font-size: .82rem; line-height: 1.25; opacity: .95; }
+  .quality-copy .section-title { font-size: clamp(1.8rem, 3.6vw, 2.7rem); }
+  .quality-list { margin-top: 28px; display: grid; gap: 16px; }
+  .quality-list li { display: flex; gap: 14px; align-items: flex-start; }
+  .quality-list svg { width: 22px; height: 22px; color: var(--red); flex-shrink: 0; margin-top: 2px; }
+  .quality-list strong { display: block; font-family: var(--font-display); font-size: 1.02rem; margin-bottom: 2px; }
+  .quality-list span { color: var(--ink-soft); font-size: .96rem; }
+
+  /* ---------- CERTIFICATIONS (conveyor belt) ---------- */
+  .certs-eyebrow { display: flex; justify-content: center; margin-bottom: 40px; }
+  .cert-belt {
+    overflow: hidden;
+    padding: 26px 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+  }
+  .cert-belt-track {
+    display: flex; gap: 26px; width: max-content;
+    animation: beltScroll 30s linear infinite;
+  }
+  .cert-belt:hover .cert-belt-track { animation-play-state: paused; }
+  .cert-plate {
+    flex: 0 0 auto; width: 172px; height: 124px;
+    background: #fff; border-radius: 20px; box-shadow: var(--shadow-sm);
+    display: grid; place-items: center; padding: 24px;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .cert-plate:hover { transform: translateY(-7px); box-shadow: 0 14px 28px rgba(24,26,51,.14); }
+  .cert-plate img { max-height: 66px; max-width: 100%; width: auto; object-fit: contain; }
+  @keyframes beltScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .cert-belt-track { animation: none; justify-content: center; }
+  }
+
+  /* ---------- CTA ---------- */
+  .cta-box {
+    display: flex; justify-content: space-between; align-items: center; gap: 36px; flex-wrap: wrap;
+  }
+  .cta-box h2 { color: #fff; font-size: clamp(1.8rem, 3.6vw, 2.7rem); margin-bottom: 12px; }
+  .cta-box p { color: rgba(255,255,255,.8); max-width: 460px; }
+  .cta-box .btn { flex-shrink: 0; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 960px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 70px; }
+    .hero-art { max-width: 520px; }
+    .quality-grid { grid-template-columns: 1fr; gap: 40px; }
+    .quality-media { max-width: 460px; }
+    .prod-grid { grid-template-columns: 1fr 1fr; }
+    .brand-grid { grid-template-columns: 1fr; }
+    .brands .sec-head { grid-template-columns: 1fr; gap: 14px; }
+  }
+  @media (max-width: 560px) {
+    .brand-card { grid-template-columns: 1fr; }
+    .brand-media img { min-height: 200px; }
+    .prod-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  }
+</style>

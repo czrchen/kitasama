@@ -1,0 +1,127 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Wave from "../components/Wave.astro";
+
+const categories = [
+  {
+    name: "Mega Soft Keropok Lekor",
+    accent: "var(--red)",
+    items: [
+      { img: "/images/products/mega-soft-frozen.jpg", name: "Mega Soft Frozen", desc: "Soft fish stick, frozen 1kg — long shelf life." },
+      { img: "/images/products/mega-soft-chill.jpg", name: "Mega Soft Chill", desc: "Soft fish stick, chilled 1kg — ready to fry." },
+      { img: "/images/products/mega-soft-fresh.jpg", name: "Mega Soft Fresh", desc: "Made-fresh lekor, 50-stick pack." },
+    ],
+  },
+  {
+    name: "Crispy Lekor & Crackers",
+    accent: "var(--gold)",
+    items: [
+      { img: "/images/products/lekor-chips.jpg", name: "Lekor Chips", desc: "Sliced lekor crisps — crunchy, chilled 1kg." },
+      { img: "/images/products/keropok-batang.jpg", name: "Keropok Batang", desc: "Stick-form fish crackers, 10 pcs." },
+      { img: "/images/products/lekor-panjang.jpg", name: "Keropok Lekor Panjang", desc: "Long-form fish crackers, 25 pcs." },
+    ],
+  },
+  {
+    name: "Dipping Sauce",
+    accent: "var(--navy)",
+    items: [
+      { img: "/images/products/sos-pencicah.jpg", name: "Sos Pencicah Lekor", desc: "The chili dipping sauce made for lekor, 1kg." },
+    ],
+  },
+];
+---
+
+<Layout path="/products" title="Products — Central Vista Snacks & Confectionery">
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow" data-reveal>Our products</span>
+      <h1 class="page-title" data-reveal>Our keropok lekor range</h1>
+      <p class="page-lead" data-reveal>
+        Soft fish sticks, crispy lekor chips, crackers and dipping sauce — fresh, chilled or frozen.
+        Wholesale, food-service and export supply welcome.
+      </p>
+    </div>
+  </section>
+
+  {categories.map((cat) => (
+    <section class="cat" style={`--c:${cat.accent}`}>
+      <div class="container">
+        <header class="cat-head" data-reveal>
+          <span class="cat-bar"></span>
+          <h2>{cat.name}</h2>
+          <span class="cat-count">{cat.items.length} products</span>
+        </header>
+        <div class="cat-grid" data-reveal-group>
+          {cat.items.map((it) => (
+            <article class="pcard">
+              <div class="pcard-media">
+                <img src={it.img} alt={it.name} loading="lazy" width="600" height="400" />
+              </div>
+              <div class="pcard-body">
+                <h3>{it.name}</h3>
+                <p>{it.desc}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="oem ribbon">
+    <Wave side="top" />
+    <Wave side="bottom" />
+    <div class="container ribbon-inner">
+      <div class="oem-box" data-reveal>
+        <div class="oem-copy">
+          <h2>Supply &amp; wholesale</h2>
+          <p>Stock Kitasama in your store, restaurant or market — we supply fresh, chilled and frozen, with export options. Let's talk volumes.</p>
+        </div>
+        <a href="/contact" class="btn btn-primary">Talk to us
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero { padding: 64px 0 50px; }
+  .page-title { font-size: clamp(2.6rem, 6vw, 4.2rem); margin: 18px 0 18px; letter-spacing: -0.04em; }
+  .page-lead { font-size: 1.12rem; color: var(--ink-soft); max-width: 600px; line-height: 1.65; }
+
+  .cat { padding: 50px 0 0; }
+  .cat-head { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+  .cat-bar { width: 32px; height: 6px; border-radius: 6px; background: var(--c); }
+  .cat-head h2 { font-size: clamp(1.5rem, 3.2vw, 2rem); letter-spacing: -0.03em; }
+  .cat-count { margin-left: auto; font-size: .82rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+
+  .cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 34px; }
+  .pcard { display: block; }
+  .pcard-media {
+    aspect-ratio: 1/1; overflow: hidden; border-radius: 26px; background: #fff;
+    box-shadow: 0 0 0 rgba(35,49,39,0);
+    transition: transform .4s cubic-bezier(.2,.8,.25,1), box-shadow .4s ease;
+  }
+  .pcard-media img { width: 100%; height: 100%; object-fit: contain; padding: 18px; transition: transform .6s cubic-bezier(.2,.8,.25,1); }
+  .pcard:hover .pcard-media { transform: translateY(-12px); box-shadow: 0 26px 44px rgba(95,174,54,.18); }
+  .pcard:hover .pcard-media img { transform: scale(1.08); }
+  .pcard-body { padding: 18px 6px 0; }
+  .pcard-body h3 { font-size: 1.05rem; letter-spacing: -0.02em; margin-bottom: 4px; transition: color .25s ease; }
+  .pcard:hover .pcard-body h3 { color: var(--red); }
+  .pcard-body p { color: var(--ink-soft); font-size: .9rem; line-height: 1.5; }
+
+  .oem-box {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 36px; flex-wrap: wrap;
+  }
+  .oem-box h2 { color: #fff; font-size: clamp(1.8rem, 3.6vw, 2.5rem); margin-bottom: 12px; }
+  .oem-box p { color: rgba(255,255,255,.8); max-width: 480px; }
+  .oem-box .btn { flex-shrink: 0; }
+
+  @media (max-width: 900px) { .cat-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) {
+    .cat-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .oem-box { padding: 40px 30px; }
+  }
+</style>

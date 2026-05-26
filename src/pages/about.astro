@@ -1,0 +1,150 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Wave from "../components/Wave.astro";
+
+const timeline = [
+  { year: "1988", title: "A home kitchen", text: "Kitasama begins making keropok lekor from a small kitchen in Klang." },
+  { year: "Growth", title: "Recipe perfected", text: "The signature 'Mega Soft' texture earns a loyal following across Selangor." },
+  { year: "Modern", title: "A 9,000 sqft factory", text: "Traditional recipes meet modern machinery — Halal and MeSTI certified." },
+  { year: "Today", title: "Malaysia's leader", text: "One of Malaysia's leading keropok lekor makers, supplying retail, food-service and export." },
+];
+
+const stats = [
+  { num: "35", suffix: "+", label: "Years of recipe" },
+  { num: "7", suffix: "", label: "Products in range" },
+  { num: "100", suffix: "%", label: "Halal certified" },
+  { num: "9000", suffix: "", label: "sqft factory" },
+];
+
+const certs = ["Halal (JAKIM)", "MeSTI (KKM)", "Made in Malaysia", "Since 1988"];
+---
+
+<Layout path="/about" title="About — Kitasama Food">
+  <section class="about-hero">
+    <div class="container about-hero-grid">
+      <div class="about-hero-copy" data-reveal>
+        <span class="eyebrow">About us</span>
+        <h1>We don't just sell keropok — we sell Malaysian food culture.</h1>
+        <p>Kitasama Food Sdn Bhd has been making keropok lekor since 1988, growing from a small Klang
+          kitchen into one of Malaysia's leading fish-cracker makers. Same traditional recipe, now
+          produced fresh at scale and Halal &amp; MeSTI certified.</p>
+      </div>
+      <div class="about-hero-media" data-reveal>
+        <img src="/images/about-factory.jpg" alt="Kitasama factory" width="560" height="460" />
+      </div>
+    </div>
+  </section>
+
+  <section class="stats ribbon">
+    <Wave side="top" />
+    <Wave side="bottom" />
+    <div class="container ribbon-inner">
+      <div class="stats-grid" data-reveal-group>
+        {stats.map((s) => (
+          <div class="stat">
+            <span class="num"><span data-count={s.num}>0</span>{s.suffix}</span>
+            <span class="label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="story">
+    <div class="container story-grid">
+      <article class="story-card" data-reveal>
+        <span class="story-rule"></span>
+        <h2>Our mission</h2>
+        <p>To keep a beloved Malaysian snack alive and thriving — making authentic keropok lekor that tastes like home.</p>
+      </article>
+      <article class="story-card" data-reveal>
+        <span class="story-rule"></span>
+        <h2>Our promise</h2>
+        <p>Halal and MeSTI certified, consistently made, and good value — reliable supply for retail, food-service and export partners.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="timeline-sec">
+    <div class="container">
+      <header class="sec-head center" data-reveal>
+        <span class="eyebrow center">Our journey</span>
+        <h2 class="section-title">From a kitchen in Klang</h2>
+      </header>
+      <div class="timeline" data-reveal-group>
+        {timeline.map((t) => (
+          <div class="tl-item">
+            <div class="tl-marker"><span class="tl-year">{t.year}</span></div>
+            <div class="tl-body">
+              <h3>{t.title}</h3>
+              <p>{t.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="certs-sec ribbon ribbon-ink">
+    <Wave side="top" />
+    <Wave side="bottom" />
+    <div class="container ribbon-inner center" data-reveal>
+      <span class="eyebrow center">Certified &amp; trusted</span>
+      <h2>Quality that's officially recognised</h2>
+      <div class="cert-grid">
+        {certs.map((c) => <span class="cert-chip">{c}</span>)}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about-hero { padding: 64px 0 70px; }
+  .about-hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+  .about-hero-copy h1 { font-size: clamp(2.2rem, 4.6vw, 3.4rem); margin: 18px 0 20px; letter-spacing: -0.035em; }
+  .about-hero-copy p { font-size: 1.1rem; color: var(--ink-soft); line-height: 1.65; }
+  .about-hero-media img { width: 100%; border-radius: var(--r-lg); aspect-ratio: 6/5; object-fit: cover; box-shadow: var(--shadow-md); }
+
+  .stats-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  }
+  .stat { text-align: center; }
+  .stat .num { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 4vw, 3rem); display: block; letter-spacing: -0.02em; }
+  .stat .label { font-size: .92rem; color: rgba(255,255,255,.78); }
+
+  .story { padding: 96px 0 0; }
+  .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .story-rule { display: block; width: 40px; height: 3px; border-radius: 3px; background: var(--red); margin-bottom: 22px; }
+  .story-card h2 { font-size: 1.6rem; margin-bottom: 12px; letter-spacing: -0.03em; }
+  .story-card p { font-size: 1.1rem; color: var(--ink-soft); line-height: 1.7; }
+
+  .timeline-sec { padding: 100px 0 0; }
+  .sec-head { margin-bottom: 50px; }
+  .timeline { max-width: 760px; margin: 0 auto; }
+  .tl-item { display: grid; grid-template-columns: 120px 1fr; gap: 28px; padding-bottom: 14px; position: relative; }
+  .tl-item:not(:last-child) .tl-marker::after {
+    content: ""; position: absolute; left: 5px; top: 26px; bottom: -14px; width: 2px; background: var(--line);
+  }
+  .tl-marker { position: relative; padding-left: 22px; }
+  .tl-marker::before { content: ""; position: absolute; left: 0; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--red); }
+  .tl-year { font-family: var(--font-display); font-weight: 700; color: var(--navy); font-size: 1.05rem; }
+  .tl-body { padding-bottom: 24px; }
+  .tl-body h3 { font-size: 1.2rem; margin-bottom: 5px; }
+  .tl-body p { color: var(--ink-soft); }
+
+  .certs-sec h2 { color: #fff; font-size: clamp(1.6rem, 3.2vw, 2.2rem); margin: 14px 0 30px; }
+  .cert-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+  .cert-chip {
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+    padding: 11px 22px; border-radius: 999px; font-weight: 500; font-size: .95rem;
+  }
+
+  @media (max-width: 860px) {
+    .about-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .stats-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+    .story-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .tl-item { grid-template-columns: 90px 1fr; gap: 16px; }
+  }
+</style>
