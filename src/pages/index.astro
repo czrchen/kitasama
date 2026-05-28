@@ -27,7 +27,7 @@ const quality = [
     <div class="container hero-grid">
       <div class="hero-copy" data-hero-stagger>
         <span class="eyebrow">Malaysian Keropok Lekor · Since 1988</span>
-        <h1>Real keropok lekor, <span class="accent">made fresh.</span></h1>
+        <h1 data-split data-split-accent="2">Real keropok lekor, made fresh.</h1>
         <p class="hero-lead">
           Kitasama has been making Malaysia's favourite fish crackers for over 35 years —
           soft, springy keropok lekor and crispy snacks, supplied fresh, chilled and frozen.
@@ -144,7 +144,7 @@ const quality = [
         <span class="eyebrow">Why Kitasama</span>
         <h2 class="section-title">From a home kitchen to Malaysia's tables</h2>
         <p class="section-lead">What began in a small Klang kitchen in 1988 now runs on modern machinery — but the recipe, and the springy texture people love, hasn't changed.</p>
-        <ul class="quality-list">
+        <ul class="quality-list" data-scrub>
           {quality.map((q) => (
             <li>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg>
@@ -170,23 +170,6 @@ const quality = [
             <div class="cert-plate"><img src={c.img} alt={c.name} loading="lazy" /></div>
           ))}
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ CTA ============ -->
-  <section class="cta ribbon">
-    <Wave side="top" />
-    <Wave side="bottom" />
-    <div class="container ribbon-inner">
-      <div class="cta-box" data-reveal>
-        <div class="cta-copy">
-          <h2>Bring real keropok lekor to your customers.</h2>
-          <p>Wholesale, food-service and export partners — let's talk supply, formats and volumes.</p>
-        </div>
-        <a href="/contact" class="btn btn-primary">Get in touch
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
       </div>
     </div>
   </section>
